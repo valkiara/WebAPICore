@@ -1,0 +1,629 @@
+{
+	"info": {
+		"_postman_id": "e9a4c362-4912-4385-b212-60bfcd922d54",
+		"name": "Web API Boilerplate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Helpers controller",
+			"item": [
+				{
+					"name": "HashBcrypt",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}helpers/HashBCrypt?plainText=123",
+							"host": [
+								"{{api-url}}helpers"
+							],
+							"path": [
+								"HashBCrypt"
+							],
+							"query": [
+								{
+									"key": "plainText",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VerifyBCrypt",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}helpers/VerifyBCrypt?plainText=123&hash=$2a$10$h9xQss0BRnRlluMoMxtQqeQY7PEMxjELFTkAk6e1MosfD0KvWcjcC",
+							"host": [
+								"{{api-url}}helpers"
+							],
+							"path": [
+								"VerifyBCrypt"
+							],
+							"query": [
+								{
+									"key": "plainText",
+									"value": "123"
+								},
+								{
+									"key": "hash",
+									"value": "$2a$10$h9xQss0BRnRlluMoMxtQqeQY7PEMxjELFTkAk6e1MosfD0KvWcjcC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EncryptString",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}helpers/EncryptString?clearText=123",
+							"host": [
+								"{{api-url}}helpers"
+							],
+							"path": [
+								"EncryptString"
+							],
+							"query": [
+								{
+									"key": "clearText",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DecryptString",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}helpers/DecryptString?cipherText=VO4VO6ufnQjOWu7IkoI25Q==",
+							"host": [
+								"{{api-url}}helpers"
+							],
+							"path": [
+								"DecryptString"
+							],
+							"query": [
+								{
+									"key": "cipherText",
+									"value": "VO4VO6ufnQjOWu7IkoI25Q=="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenRandomNumber",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}helpers/GenRandomNumber?min=1111&max=5555",
+							"host": [
+								"{{api-url}}helpers"
+							],
+							"path": [
+								"GenRandomNumber"
+							],
+							"query": [
+								{
+									"key": "min",
+									"value": "1111"
+								},
+								{
+									"key": "max",
+									"value": "5555"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GenRandomChar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}helpers/GenRandomChar?length=10",
+							"host": [
+								"{{api-url}}helpers"
+							],
+							"path": [
+								"GenRandomChar"
+							],
+							"query": [
+								{
+									"key": "length",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CompressToGzipString",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}helpers/CompressToGzipString?plaintText=123",
+							"host": [
+								"{{api-url}}helpers"
+							],
+							"path": [
+								"CompressToGzipString"
+							],
+							"query": [
+								{
+									"key": "plaintText",
+									"value": "123"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DecompressGzipString",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}helpers/DecompressGzipString?compressedString=H4sIAAAAAAAACzM0MgYA0mNIiAMAAAA=",
+							"host": [
+								"{{api-url}}helpers"
+							],
+							"path": [
+								"DecompressGzipString"
+							],
+							"query": [
+								{
+									"key": "compressedString",
+									"value": "H4sIAAAAAAAACzM0MgYA0mNIiAMAAAA="
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Login Controller",
+			"item": [
+				{
+					"name": "Login as User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\": \"Brandon Stark\",\n\t\"Password\": \"My direwolf is Summer\"\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}login",
+							"host": [
+								"{{api-url}}login"
+							]
+						},
+						"description": "Sucessfully login as user"
+					},
+					"response": []
+				},
+				{
+					"name": "Login as Admin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\": \"Eddard Stark\",\n\t\"Password\": \"I'm the lord of WinterFell\"\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}login",
+							"host": [
+								"{{api-url}}login"
+							]
+						},
+						"description": "Sucessfully login as Admin"
+					},
+					"response": []
+				},
+				{
+					"name": "Invalid Credential",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\": \"Brandon Stark\",\n\t\"Password\": \"My direwolf is Lady\"\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}login",
+							"host": [
+								"{{api-url}}login"
+							]
+						},
+						"description": "Failed login as credentials are invalid"
+					},
+					"response": []
+				},
+				{
+					"name": "Deleted account",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\": \"Brandon Stark\",\n\t\"Password\": \"Eddard's elder brother\"\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}login",
+							"host": [
+								"{{api-url}}login"
+							]
+						},
+						"description": "Oops! This API has credentials for a deleted account"
+					},
+					"response": []
+				},
+				{
+					"name": "User 404",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\": \"Harry Potter\",\n\t\"Password\": \"I'm not in GOT\"\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}login",
+							"host": [
+								"{{api-url}}login"
+							]
+						},
+						"description": "There is no such user!"
+					},
+					"response": []
+				},
+				{
+					"name": "Throw me an Exception",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\": \"No one\",\n\t\"Password\": \"A man wants an exception\"\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}login",
+							"host": [
+								"{{api-url}}login"
+							]
+						},
+						"description": "A perfectly self thrown exeption."
+					},
+					"response": []
+				},
+				{
+					"name": "I want validation error",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"UserName\": null,\n\t\"Password\": \"A man wants an exception\"\n}"
+						},
+						"url": {
+							"raw": "{{api-url}}login",
+							"host": [
+								"{{api-url}}login"
+							]
+						},
+						"description": "A perfectly self thrown exeption."
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "742c8128-e96c-452b-9238-82bae87c4b08",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "54a9c6e3-9862-46b9-b3d0-856cd2d1a663",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tasks Controller",
+			"item": [
+				{
+					"name": "Reload config",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api-url}}tasks/reload/config",
+							"host": [
+								"{{api-url}}tasks"
+							],
+							"path": [
+								"reload",
+								"config"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Values Controller",
+			"item": [
+				{
+					"name": "Values List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}values",
+							"host": [
+								"{{api-url}}values"
+							]
+						},
+						"description": "A list of all values. Requires Authentication."
+					},
+					"response": []
+				},
+				{
+					"name": "Value Detail",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}values/0",
+							"host": [
+								"{{api-url}}values"
+							],
+							"path": [
+								"0"
+							]
+						},
+						"description": "A single value.  Requires Authentication."
+					},
+					"response": []
+				},
+				{
+					"name": "Value Detail NotFound",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api-url}}values/10",
+							"host": [
+								"{{api-url}}values"
+							],
+							"path": [
+								"10"
+							]
+						},
+						"description": "Get detail for a value that is not there. Requires Authentication."
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"Tyrion Lanister\""
+						},
+						"url": {
+							"raw": "{{api-url}}values",
+							"host": [
+								"{{api-url}}values"
+							]
+						},
+						"description": "API request for creating new value. Requires Admin auth."
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Save",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\"Tyrion Lanister\""
+						},
+						"url": {
+							"raw": "{{api-url}}values/1",
+							"host": [
+								"{{api-url}}values"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "API request for updating existing value. Requires Admin auth."
+					},
+					"response": []
+				},
+				{
+					"name": "Value Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{api-url}}values/1",
+							"host": [
+								"{{api-url}}values"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "A delete request to the value controller. Requires Admin auth."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{auth-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "4720eae7-9f80-4843-8b85-10890b0959d2",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2b0d1ae2-9067-4098-8406-276fa66340fa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "632824ac-2056-483c-ac73-ffe669ce6c78",
+			"key": "api-url",
+			"value": "https://localhost:44332/api/",
+			"type": "string"
+		},
+		{
+			"id": "bd6e8c78-90fa-4a37-821e-a397f640b29b",
+			"key": "auth-token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJXZWJBcGlCb2lsZXJwbGF0ZSIsImF1ZCI6Imh0dHBzOi8vd3d3LmV4YW1wbGUuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiYWRtaW4iLCJuYW1laWQiOiJFZGRhcmQgU3RhcmsiLCJ1c2VyX2lkZW50aWZpZXIiOiIyZTBhN2M0ZC0zNTY3LTRlMDctYWIwMS0xZWYzMTgzODYxNWIiLCJjb21wYW55X2lkZW50aWZpZXIiOiJHT1QiLCJqdGkiOiJmMDYxOGQxNC1kNjJiLTQ3MjItYTQ5YS03OGFlNWFiMWI4YzUiLCJuYmYiOjE1ODg5NTEwOTcsImlhdCI6MTU4ODk1MTA5NywiZXhwIjoxNTkxNTQzMDk3fQ.Amsb_FUnOH0nPVfiEjiy7RyOQ7UeuLGOnL4wbvBaKHg",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
